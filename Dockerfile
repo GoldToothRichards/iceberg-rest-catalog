@@ -85,6 +85,9 @@ RUN chown -R iceberg:iceberg /home/iceberg/iceberg_rest
 # Switch to iceberg user
 USER iceberg
 
+# Copy in the submodules
+COPY vendor/ vendor/
+
 # Add the source code
 COPY pyproject.toml ./
 COPY src/ src/
@@ -123,6 +126,9 @@ RUN chown -R iceberg:iceberg /home/iceberg/iceberg_rest
 
 # Switch to iceberg user
 USER iceberg
+
+# Copy in the submodules
+COPY vendor/ vendor/
 
 # Add the source code
 COPY pyproject.toml poetry.lock poetry.toml ./
